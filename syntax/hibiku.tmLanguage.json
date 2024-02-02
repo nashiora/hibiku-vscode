@@ -1,0 +1,150 @@
+{
+	"name": "Hibiku",
+	"patterns": [
+		{ "include": "#punctuation" },
+		{ "include": "#comment" },
+		{ "include": "#keyword" },
+		{ "include": "#operator" },
+		{ "include": "#number" },
+		{ "include": "#string" },
+		{ "include": "#function" },
+		{ "include": "#variable" }
+	],
+	"repository": {
+		"punctuation": {
+			"name": "punctuation.hibiku",
+			"match": "::|[(),.:;\\[\\]{}]|(?<=[0-9A-Z_a-z]\\s*)<(?=[\\s,0-9A-Z_a-z]*>)|(?<=[0-9A-Z_a-z]\\s*<[\\s,0-9A-Z_a-z]*)>"
+		},
+		"comment": {
+			"patterns": [
+				{
+					"name": "comment.hibiku",
+					"begin": "/\\*",
+					"end": "\\*/",
+					"patterns": [
+						{
+							"begin": "/\\*",
+							"end": "\\*/"
+						},
+						{
+							"match": "\\\\`"
+						},
+						{
+							"name": "meta.embedded.hibiku",
+							"begin": "`",
+							"end": "`",
+							"patterns": [
+								{ "include": "$self" }
+							]
+						},
+						{
+							"name": "keyword.hibiku",
+							"match": "@(?:author|deprecated|param|return|see|since)\\b"
+						},
+						{
+							"name": "variable.other.constant.hibiku",
+							"match": "(?<=@author\\s+)[\\-.0-9A-Z_a-z]+\\b"
+						},
+						{
+							"name": "variable.parameter.hibiku",
+							"match": "(?<=@param\\s+[0-9A-Z_a-z]+\\s*(?:<[\\s,0-9A-Z_a-z]*>\\s*)?)[0-9A-Z_a-z]+\\b"
+						},
+						{
+							"name": "entity.name.type.hibiku",
+							"match": "(?<=@(?:param|return)\\s+(?:[0-9A-Z_a-z]+\\s*<(?:[\\s,0-9A-Z_a-z]+,)?\\s*)?)[0-9A-Z_a-z]+\\b"
+						},
+						{
+							"name": "constant.numeric.hibiku",
+							"match": "(?<=@since\\s+)[\\-.0-9A-Z_a-z]+\\b"
+						}
+					]
+				},
+				{
+					"name": "comment.hibiku",
+					"match": "//.*"
+				}
+			]
+		},
+		"keyword": {
+			"patterns": [
+				{
+					"name": "keyword.hibiku",
+					"match": "\\b(?:export|local|function|if|while|for|return|break|continue)\\b"
+				},
+				{
+					"name": "constant.language.hibiku",
+					"match": "\\b(?:false|nil|true)\\b"
+				},
+				{
+					"name": "storage.type.hibiku",
+					"match": "\\b(?:bool|int|float|void)\\b"
+				}
+			]
+		},
+		"operator": {
+			"name": "keyword.operator.hibiku",
+			"match": "\\?|=>|(?:<<|>>|[!%&*+\\-/<=>|~])=?"
+		},
+		"number": {
+			"patterns": [
+				{
+					"name": "constant.numeric.hibiku",
+					"match": "(?<![._])\\b\\d+(?:_\\d+)*(?:\\.\\d+)?\\b(?![._])"
+				}
+			]
+		},
+		"escape": {
+			"name": "constant.character.escape.hibiku",
+			"match": "\\\\(?:[0abefnrtv\\\\]|x[0-7][0-9A-Fa-f]|o[0-1]?[0-7]{1,2}|u[0-9A-Fa-f]{4}|U[0-9A-Fa-f]{8})"
+		},
+		"string": {
+			"patterns": [
+				{
+					"name": "string.hibiku",
+					"begin": "\"",
+					"end": "\"",
+					"patterns": [
+						{
+							"name": "constant.character.escape.hibiku",
+							"match": "\\\\\""
+						},
+						{ "include": "#escape" },
+						{
+							"name": "constant.other.placeholder.hibiku",
+							"match": "%[\\+#]*\\d*(?:\\.\\d+)?(?:hh|ll|l)?[%EGXc-gopsux]"
+						},
+						{
+							"name": "invalid.hibiku",
+							"match": "[\\\\%]."
+						}
+					]
+				},
+				{
+					"name": "string.hibiku",
+					"begin": "'",
+					"end": "'",
+					"patterns": [
+						{
+							"name": "constant.character.escape.hibiku",
+							"match": "\\\\'"
+						},
+						{ "include": "#escape" },
+						{
+							"name": "invalid.hibiku",
+							"match": "\\\\."
+						}
+					]
+				}
+			]
+		},
+		"function": {
+			"name": "entity.name.function.hibiku",
+			"match": "\\b[0-9A-Z_a-z]+(?=\\s*\\()"
+		},
+		"variable": {
+			"name": "variable.hibiku",
+			"match": "\\b[A-Z_a-z][0-9A-Z_a-z]*\\b"
+		}
+	},
+	"scopeName": "source.hibiku"
+}

@@ -1,0 +1,48 @@
+{
+	"name": "hibiku-vscode",
+	"displayName": "Hibiku for VS-Code",
+	"description": "Hibiku support for Visual Studio Code",
+	"publisher": "hibiku-lang",
+	"license": "MIT",
+	"version": "0.1.0",
+	"icon": "images/icon.png",
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/nashiora/hibiku-vscode"
+	},
+	"engines": {
+		"vscode": "^1.75.0"
+	},
+	"categories": [
+		"Programming Languages"
+	],
+	"keywords": [
+		"Hibiku",
+		"hibiku"
+	],
+	"contributes": {
+		"languages": [
+			{
+				"id": "hibiku",
+				"aliases": [
+					"Hibiku",
+					"hibiku"
+				],
+				"extensions": [
+					".hibiku"
+				],
+				"configuration": "language-configuration.json"
+			}
+		],
+		"grammars": [
+			{
+				"language": "hibiku",
+				"scopeName": "source.hibiku",
+				"path": "syntax/hibiku.tmLanguage.json"
+			}
+		]
+	},
+	"dependencies": {
+		"@vscode/vsce": "^2.15.0"
+	}
+}

@@ -1,0 +1,10 @@
+# Directories
+.vscode
+test
+
+# Files
+.gitignore
+install.bat
+
+# Filetypes
+*.vsix

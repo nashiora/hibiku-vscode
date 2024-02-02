@@ -1,0 +1,4 @@
+export foo : int = 34;
+local bar = 35;
+
+local baz = foo + bar;
