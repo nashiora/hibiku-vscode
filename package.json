@@ -5,7 +5,6 @@
 	"publisher": "hibiku-lang",
 	"license": "MIT",
 	"version": "0.1.0",
-	"icon": "images/icon.png",
 	"repository": {
 		"type": "git",
 		"url": "https://github.com/nashiora/hibiku-vscode"
@@ -41,8 +40,5 @@
 				"path": "syntax/hibiku.tmLanguage.json"
 			}
 		]
-	},
-	"dependencies": {
-		"@vscode/vsce": "^2.23.0"
 	}
 }
