@@ -38,6 +38,13 @@
 				"language": "hibiku",
 				"scopeName": "source.hibiku",
 				"path": "syntax/hibiku.tmLanguage.json"
+			},
+			{
+				"scopeName": "source.md",
+				"path": "syntax/md.tmLanguage.json",
+				"injectTo": [
+					"text.html.markdown"
+				]
 			}
 		]
 	}
